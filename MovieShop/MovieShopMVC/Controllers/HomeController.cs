@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using ApplicationCore.Models;
+using Infrastructure.Services;
 
 namespace MovieShopMVC.Controllers
 {
@@ -20,7 +22,16 @@ namespace MovieShopMVC.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            //call movie service class to get list of movie card models
+            MovieService service = new MovieService();
+            var movieCards = service.GetTop30RevenueMovies();
+
+            //1. (mostly used) passing data from controller to view, strongly typed models
+            //2. (less common) ViewBag and ViewData
+            ViewBag.PageTitle = "Top revenue Movies";
+            ViewData["xyz"] = "test data";
+
+            return View(movieCards);
         }
 
         [HttpGet]

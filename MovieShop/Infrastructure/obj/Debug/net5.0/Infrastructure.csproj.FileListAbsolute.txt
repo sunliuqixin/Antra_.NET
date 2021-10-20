@@ -1,0 +1,15 @@
+C:\Antra_.NET\MovieShop\Infrastructure\bin\Debug\net5.0\Infrastructure.deps.json
+C:\Antra_.NET\MovieShop\Infrastructure\bin\Debug\net5.0\Infrastructure.dll
+C:\Antra_.NET\MovieShop\Infrastructure\bin\Debug\net5.0\ref\Infrastructure.dll
+C:\Antra_.NET\MovieShop\Infrastructure\bin\Debug\net5.0\Infrastructure.pdb
+C:\Antra_.NET\MovieShop\Infrastructure\bin\Debug\net5.0\ApplicationCore.dll
+C:\Antra_.NET\MovieShop\Infrastructure\bin\Debug\net5.0\ApplicationCore.pdb
+C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.AssemblyReference.cache
+C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfo.cs
+C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CopyComplete
+C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
+C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
+C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb

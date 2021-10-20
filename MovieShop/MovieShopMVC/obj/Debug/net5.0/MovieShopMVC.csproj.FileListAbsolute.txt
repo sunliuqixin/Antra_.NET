@@ -39,3 +39,7 @@ C:\Antra_.NET\MovieShop\MovieShopMVC\obj\Debug\net5.0\ref\MovieShopMVC.dll
 C:\Antra_.NET\MovieShop\MovieShopMVC\obj\Debug\net5.0\MovieShopMVC.pdb
 C:\Antra_.NET\MovieShop\MovieShopMVC\obj\Debug\net5.0\MovieShopMVC.genruntimeconfig.cache
 C:\Antra_.NET\MovieShop\MovieShopMVC\obj\Debug\net5.0\MovieShopMVC.csproj.CopyComplete
+C:\Antra_.NET\MovieShop\MovieShopMVC\bin\Debug\net5.0\ApplicationCore.dll
+C:\Antra_.NET\MovieShop\MovieShopMVC\bin\Debug\net5.0\Infrastructure.dll
+C:\Antra_.NET\MovieShop\MovieShopMVC\bin\Debug\net5.0\ApplicationCore.pdb
+C:\Antra_.NET\MovieShop\MovieShopMVC\bin\Debug\net5.0\Infrastructure.pdb

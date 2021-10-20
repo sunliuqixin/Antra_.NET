@@ -1,0 +1,12 @@
+C:\Antra_.NET\MovieShop\ApplicationCore\bin\Debug\net5.0\ApplicationCore.deps.json
+C:\Antra_.NET\MovieShop\ApplicationCore\bin\Debug\net5.0\ApplicationCore.dll
+C:\Antra_.NET\MovieShop\ApplicationCore\bin\Debug\net5.0\ref\ApplicationCore.dll
+C:\Antra_.NET\MovieShop\ApplicationCore\bin\Debug\net5.0\ApplicationCore.pdb
+C:\Antra_.NET\MovieShop\ApplicationCore\obj\Debug\net5.0\ApplicationCore.csproj.AssemblyReference.cache
+C:\Antra_.NET\MovieShop\ApplicationCore\obj\Debug\net5.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Antra_.NET\MovieShop\ApplicationCore\obj\Debug\net5.0\ApplicationCore.AssemblyInfoInputs.cache
+C:\Antra_.NET\MovieShop\ApplicationCore\obj\Debug\net5.0\ApplicationCore.AssemblyInfo.cs
+C:\Antra_.NET\MovieShop\ApplicationCore\obj\Debug\net5.0\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Antra_.NET\MovieShop\ApplicationCore\obj\Debug\net5.0\ApplicationCore.dll
+C:\Antra_.NET\MovieShop\ApplicationCore\obj\Debug\net5.0\ref\ApplicationCore.dll
+C:\Antra_.NET\MovieShop\ApplicationCore\obj\Debug\net5.0\ApplicationCore.pdb
