@@ -9,7 +9,9 @@ C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.Generated
 C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfoInputs.cache
 C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfo.cs
 C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CoreCompileInputs.cache
-C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CopyComplete
 C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
 C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
 C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb
+C:\Antra_.NET\MovieShop\Infrastructure\bin\Debug\net5.0\Infrastructure.runtimeconfig.json
+C:\Antra_.NET\MovieShop\Infrastructure\bin\Debug\net5.0\Infrastructure.runtimeconfig.dev.json
+C:\Antra_.NET\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.genruntimeconfig.cache
