@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class MovieShopDbContext: DbContext
+    public class MovieShopDbContext : DbContext
     {
         //get the connection string into constructor
 
-        public MovieShopDbContext(DbContextOptions<MovieShopDbContext> options): base(options)
+        public MovieShopDbContext(DbContextOptions<MovieShopDbContext> options) : base(options)
         {
-                
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace Infrastructure.Data
             builder.Property(m => m.Budget).HasColumnType("decimal(18, 4)").HasDefaultValue(9.9m);
             builder.Property(m => m.Revenue).HasColumnType("decimal(18, 4)").HasDefaultValue(9.9m);
             builder.Property(m => m.CreatedDate).HasDefaultValueSql("getdate()");
-            
+
             //tell EF to ignore the rating colmns
             builder.Ignore(m => m.Rating);
 
@@ -53,5 +53,12 @@ namespace Infrastructure.Data
         public DbSet<Genre> Genres { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
+
+        public DbSet<Cast> Casts { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
+
 }
