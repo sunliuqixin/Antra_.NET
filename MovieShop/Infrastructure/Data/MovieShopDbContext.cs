@@ -22,6 +22,25 @@ namespace Infrastructure.Data
         {
             //specify Fluent API rules for your Entities
             modelBuilder.Entity<Movie>(ConfigureMovie);
+            modelBuilder.Entity<Trailer>(ConfigureTrailer);
+            modelBuilder.Entity<MovieGenre>(ConfigureMovieGenre);
+        }
+
+        private void ConfigureMovieGenre(EntityTypeBuilder<MovieGenre> builder)
+        {
+            builder.ToTable("MovieGenre");
+            builder.HasKey(mg => new { mg.MovieId, mg.GenreId });
+            builder.HasOne(m => m.Movie).WithMany(m => m.Genres).HasForeignKey(m => m.MovieId);
+            builder.HasOne(g => g.Genre).WithMany(g => g.Movies).HasForeignKey(g => g.GenreId);
+        }
+         
+        private void ConfigureTrailer(EntityTypeBuilder<Trailer> builder)
+        {
+            //change the name to singlar
+            builder.ToTable("Trailer");
+            builder.HasKey(t => t.Id);
+            builder.Property(t => t.TrailerUrl).HasMaxLength(2084);
+            builder.Property(t => t.Name).HasMaxLength(2084);
         }
 
         private void ConfigureMovie(EntityTypeBuilder<Movie> builder)
@@ -59,6 +78,10 @@ namespace Infrastructure.Data
         public DbSet<Role> Roles { get; set; }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Trailer> Trailers { get; set; }
+
+        public DbSet<MovieGenre> MovieGenres { get; set; }
     }
 
 }

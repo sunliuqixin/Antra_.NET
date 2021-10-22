@@ -32,5 +32,10 @@ namespace ApplicationCore.Entities
         //average rating should come from review table
         public decimal? Rating { get; set; }
 
+
+        //navigation property
+        public ICollection<Trailer> Trailers { get; set; }
+        public ICollection<MovieGenre> Genres { get; set; }
+
     }
 }
