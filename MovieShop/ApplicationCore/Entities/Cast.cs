@@ -23,6 +23,8 @@ namespace ApplicationCore.Entities
 
         [MaxLength(2084)]
         public string? ProfilePath { get; set; }
- 
+
+
+        public ICollection<MovieCast> Movies { get; set; }
     }
 }

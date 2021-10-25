@@ -8,17 +8,18 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Entities
 {
-
-    [Table("Role")]
-    public class Role
+   
+    public class UserRole
     {
-        public int Id { get; set; }
 
-        [MaxLength(20)]
-        public string Name { get; set; }
+        public int UserId { get; set; }
 
+        public int RoleId { get; set; }
 
-        public ICollection<UserRole> Users { get; set; }
+        public User User { get; set; }
+
+        public Role Role { get; set; }
+
 
 
     }

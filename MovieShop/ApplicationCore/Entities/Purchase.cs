@@ -6,20 +6,23 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Entities
 {
-    public class Trailer
+    public class Purchase
     {
-
         public int Id { get; set; }
 
-        public string? TrailerUrl { get; set; }
+        public int UserId { get; set; }
 
-        public string? Name { get; set; }
+        public Guid PurchaseNumber { get; set; }
 
+        public decimal TotalPrice { get; set; }
 
-        //FK
+        public DateTime PurchaseDateTime { get; set; }
+
         public int MovieId { get; set; }
 
-        //navigation property
         public Movie Movie { get; set; }
+
+        public User User { get; set; }
+
     }
 }

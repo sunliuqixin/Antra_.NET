@@ -24,6 +24,43 @@ namespace Infrastructure.Data
             modelBuilder.Entity<Movie>(ConfigureMovie);
             modelBuilder.Entity<Trailer>(ConfigureTrailer);
             modelBuilder.Entity<MovieGenre>(ConfigureMovieGenre);
+            modelBuilder.Entity<MovieCast>(ConfigureMovieCast);
+            modelBuilder.Entity<Review>(configureReview);
+            modelBuilder.Entity<Purchase>(configurePurchase);
+            modelBuilder.Entity<UserRole>(configureUserRole);
+        }
+
+        private void configureUserRole(EntityTypeBuilder<UserRole> builder)
+        {
+            builder.ToTable("UserRole");
+            builder.HasKey(ur => new { ur.UserId, ur.RoleId });
+            builder.HasOne(ur => ur.User).WithMany(ur => ur.Roles).HasForeignKey(ur => ur.UserId);
+            builder.HasOne(ur => ur.Role).WithMany(ur => ur.Users).HasForeignKey(ur => ur.RoleId);
+        }
+
+        private void configurePurchase(EntityTypeBuilder<Purchase> builder)
+        {
+            builder.ToTable("Purchase");
+            builder.Property(p => p.TotalPrice).HasColumnType("decimal(18, 2)").HasDefaultValue(9.9m);
+            builder.Property(p => p.PurchaseDateTime).HasDefaultValueSql("getdate()");
+        }
+
+        private void configureReview(EntityTypeBuilder<Review> builder)
+        {
+            builder.ToTable("Review");
+            builder.HasKey(r => new { r.MovieId, r.UserId });
+            builder.Property(r => r.Rating).HasColumnType("decimal(3, 2)");
+
+        }
+
+        private void ConfigureMovieCast(EntityTypeBuilder<MovieCast> builder)
+        {
+            builder.ToTable("MovieCast");
+            builder.HasKey(mc => new { mc.MovieId, mc.CastId, mc.Character } );
+            builder.Property(mc => mc.Character).HasMaxLength(450);
+            builder.HasOne(mc => mc.Movie).WithMany(mc => mc.Casts).HasForeignKey(mc => mc.MovieId); 
+            builder.HasOne(mc => mc.Cast).WithMany(mc => mc.Movies).HasForeignKey(mc => mc.CastId);
+
         }
 
         private void ConfigureMovieGenre(EntityTypeBuilder<MovieGenre> builder)
@@ -81,7 +118,19 @@ namespace Infrastructure.Data
 
         public DbSet<Trailer> Trailers { get; set; }
 
+        public DbSet<Review> Reviews { get; set; }
+
         public DbSet<MovieGenre> MovieGenres { get; set; }
+
+        public DbSet<MovieCast> MovieCasts { get; set; }
+
+        public DbSet<Favorite> Favorites { get; set; }
+
+        public DbSet<Purchase> Purchases { get; set; }
+
+        public DbSet<UserRole> UserRoles { get; set; }
+
+
     }
 
 }

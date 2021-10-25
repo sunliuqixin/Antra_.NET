@@ -40,5 +40,16 @@ namespace ApplicationCore.Entities
 
         public int? AccessFailedCount { get; set; }
 
+
+
+        //navigation property
+        public ICollection<Review> RevMovies { get; set; }
+
+        public ICollection<Favorite> FavMovies { get; set; }
+
+        public ICollection<Purchase> PurMovies { get; set; }
+
+        public ICollection<UserRole> Roles { get; set; }
+
     }
 }
