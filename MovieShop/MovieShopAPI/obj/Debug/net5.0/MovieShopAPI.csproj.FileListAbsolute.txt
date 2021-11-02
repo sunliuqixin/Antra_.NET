@@ -62,4 +62,3 @@ C:\Antra_.NET\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.dll
 C:\Antra_.NET\MovieShop\MovieShopAPI\obj\Debug\net5.0\ref\MovieShopAPI.dll
 C:\Antra_.NET\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.pdb
 C:\Antra_.NET\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.genruntimeconfig.cache
-C:\Antra_.NET\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.csproj.CopyComplete
