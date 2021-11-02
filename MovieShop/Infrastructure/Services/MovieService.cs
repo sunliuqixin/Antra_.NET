@@ -50,7 +50,7 @@ namespace Infrastructure.Services
             foreach (var genre in movie.Genres)
             {
                 movieDetails.Genres.Add(
-                    new GenreModel
+                    new GenreResponseModel
                     {
                         Id = genre.GenreId,
                         Name = genre.Genre.Name
@@ -87,6 +87,11 @@ namespace Infrastructure.Services
             return movieDetails;
         }
 
+        public Task<List<MovieCardResponseModel>> GetMoviesByGenreId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task< List<MovieCardResponseModel>> GetTop30RevenueMovies()
 
         {
@@ -106,9 +111,24 @@ namespace Infrastructure.Services
                 }); ;
             }
             return movieCards;
-
-            
         }
 
+        public async Task<List<MovieCardResponseModel>> GetTopRatedMovies()
+        {
+            var movies = await _movieRepository.GetTopRatedMovies();
+
+            var movieCards = new List<MovieCardResponseModel>();
+
+            foreach (var movie in movies)
+            {
+                movieCards.Add(new MovieCardResponseModel
+                {
+                    Id = movie.Id,
+                    PosterUrl = movie.PosterUrl,
+                    Title = movie.Title
+                }); ;
+            }
+            return movieCards;
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace ApplicationCore.Models
         public MovieDetailsResponseModel() 
         { 
             Casts = new List<CastResponseModel>(); 
-            Genres = new List<GenreModel>(); 
+            Genres = new List<GenreResponseModel>(); 
             Trailers = new List<TrailerResponseModel>(); 
         }
         
@@ -32,7 +32,7 @@ namespace ApplicationCore.Models
 
 
         public List<CastResponseModel> Casts { get; set; } 
-        public List<GenreModel> Genres { get; set; } 
+        public List<GenreResponseModel> Genres { get; set; } 
         public List<TrailerResponseModel> Trailers { get; set; } }
 
 }

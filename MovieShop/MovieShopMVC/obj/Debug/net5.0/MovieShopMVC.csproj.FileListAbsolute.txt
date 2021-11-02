@@ -156,3 +156,6 @@ C:\Antra_.NET\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\_CastDe
 C:\Antra_.NET\MovieShop\MovieShopMVC\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Antra_.NET\MovieShop\MovieShopMVC\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Antra_.NET\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Antra_.NET\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Account\Register1.cshtml.g.cs
+C:\Antra_.NET\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Purchases.cshtml.g.cs
+C:\Antra_.NET\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_LoginInfoPartial.cshtml.g.cs

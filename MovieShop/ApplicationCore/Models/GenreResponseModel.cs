@@ -1,6 +1,6 @@
 ﻿namespace ApplicationCore.Models
 {
-    public class GenreModel
+    public class GenreResponseModel
     {
 
         public int Id { get; set; } 

@@ -36,6 +36,11 @@ namespace Infrastructure.Repositories
             return movie;
         }
 
+        public async Task<IEnumerable<Review>> GetMovieReviews(int id, int pageSize = 30, int page = 1)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<Movie>> GetTop30RevenueMovies()
         {
             // we are gonna use EF with LINQ to get top 30 movies by revenue
@@ -48,6 +53,40 @@ namespace Infrastructure.Repositories
 
             return movies;
 
+        }
+
+        public async Task<IEnumerable<Movie>> GetTopRatedMovies()
+        {
+            //var movies = await from _dbContext.Movies.Include(m => m.Rating)
+            //    .OrderByDescending(m => m.Rating).Take(10).ToListAsync();
+
+            var movies = await _dbContext.Movies.ToListAsync();
+            foreach (var movie in movies)
+            {
+                var Rating = await _dbContext.Reviews.Where(r => r.MovieId == movie.Id).DefaultIfEmpty()
+                .AverageAsync(r => r == null ? 0 : r.Rating);
+                if (Rating > 0) movie.Rating = Rating;
+            }
+            var results = movies.OrderByDescending(m => m.Rating).Take(10).ToList();
+            return results;
+        }
+
+        public async Task<IEnumerable<Movie>> GetUserFavoritedMovies(int id)
+        {
+            var movies = await _dbContext.Favorites.Where(f => f.UserId == id)
+                .Select(f => f.Movie).ToListAsync();
+
+            return movies;
+        }
+
+        public async Task<IEnumerable<Movie>> GetUserPurchasesedMovies(int id)
+        {
+           
+
+            //var movies = await _dbContext.Movies.Where(x => x.Id == id).ToListAsync();
+            //var movies = await _dbContext.Movies.Include(m => m.PurUsers).Select(m=> m.pumovie.ToListAsync();
+            var movies = await _dbContext.Purchases.Where(p => p.UserId == id).Select(p => p.Movie).ToListAsync();
+            return movies;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace MovieShopMVC.Controllers
 
             var movieDetails = await _movieService.GetMovieDetails(id);
 
-            return View();
+            return View(movieDetails);
         }
     }
 }

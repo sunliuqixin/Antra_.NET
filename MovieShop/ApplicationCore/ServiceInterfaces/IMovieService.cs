@@ -12,5 +12,10 @@ namespace ApplicationCore.ServiceInterfaces
         Task<List<MovieCardResponseModel>> GetTop30RevenueMovies();
 
         Task<MovieDetailsResponseModel> GetMovieDetails(int id);
+
+        Task<List<MovieCardResponseModel>> GetTopRatedMovies();
+
+        Task<List<MovieCardResponseModel>> GetMoviesByGenreId(int id);
+
     }
 }
