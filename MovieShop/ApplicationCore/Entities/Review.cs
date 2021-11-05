@@ -21,6 +21,5 @@ namespace ApplicationCore.Entities
         public User User { get; set; }
 
        
-
     }
 }

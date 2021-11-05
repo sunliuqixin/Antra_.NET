@@ -17,7 +17,6 @@ namespace MovieShopAPI.Controllers
         // so that my SPA, iOS and Android app show those movies in the home screen
 
         private readonly IMovieService _movieService;
-        private readonly IGenreService _genreService;
 
         public MoviesController(IMovieService movieService)
         {
@@ -84,18 +83,33 @@ namespace MovieShopAPI.Controllers
             return Ok(movie);
         }
 
-        //[HttpGet]
-        //[Route("/Genre/id:int")]
-        //public async Task<IActionResult> Genre(int id)
-        //{
-        //    var moviecards = await _genreService.GetMoviesByGenreId(id);
+        [HttpGet]
+        [Route("genre/{genreId:int}")]
+        // http://localhost:5001/api/movies/genre/5?pagesize=30&pageIndex=35
+        // many movies belonging to a genre=> 
+        // pagination 
+        // 2000 movies for 5
+        // 30 movies per page =>
+        // show how many page number
+         // 2000/30 => 67 pages
+        public async Task<IActionResult> GetMoviesByGenres(int genreId, [FromQuery] int pagesize =30, [FromQuery] int pageIndex=1)
+        {
+            // 1 to 30 rows
+            // click on page 2 => 31 to 60
+            // 3 => 61 to 90
+            // LINQ moviegenres.skip(pageindex-1).take(pagesize).tolistasync()
+            // offset 0 and fetch next 30
+            // server - side pagination
+            var movies = await _movieService.GetMoviesByGenreId(genreId, pagesize, pageIndex);
 
-        //    if (moviecards == null)
-        //    {
-        //        return NotFound("No movies found for Genre");
-        //    }
+            if (movies == null)
+            {
+                return NotFound("No movies found for Genre");
+            }
 
-        //    return Ok(moviecards);
-        //}
+            return Ok(movies);
+        }
+
+        
     }
 }

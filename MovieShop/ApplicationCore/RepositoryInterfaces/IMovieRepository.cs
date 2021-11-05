@@ -14,12 +14,14 @@ namespace ApplicationCore.RepositoryInterfaces
 
         Task<Movie> GetMovieById(int id);
 
-        Task<IEnumerable<Review>> GetMovieReviews(int id, int pageSize = 30, int page = 1);
+        Task<IEnumerable<Review>> GetMovieReviews(int id, int pageSize, int page);
 
         Task<IEnumerable<Movie>> GetUserPurchasesedMovies(int id);
 
         Task<IEnumerable<Movie>> GetUserFavoritedMovies(int id);
 
         Task<IEnumerable<Movie>> GetTopRatedMovies();
+
+        Task<IEnumerable<Movie>> GetMoviesByGenreId(int id, int pagesize, int pageIndex);
     }
 }

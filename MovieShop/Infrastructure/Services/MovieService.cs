@@ -30,7 +30,7 @@ namespace Infrastructure.Services
             }
 
             var movieDetails = new MovieDetailsResponseModel 
-                    { Id = movie.Id, 
+                    {   Id = movie.Id, 
                         Budget = movie.Budget, 
                         Overview = movie.Overview, 
                         Price = movie.Price, 
@@ -67,7 +67,6 @@ namespace Infrastructure.Services
                         Character = cast.Character,
                         Name = cast.Cast.Name,
                         ProfilePath = cast.Cast.ProfilePath,
-
                     }
                 );
             }
@@ -87,9 +86,23 @@ namespace Infrastructure.Services
             return movieDetails;
         }
 
-        public Task<List<MovieCardResponseModel>> GetMoviesByGenreId(int id)
+        public async Task<List<MovieCardResponseModel>> GetMoviesByGenreId(int id, int pagesize, int pageIndex)
         {
-            throw new NotImplementedException();
+            var movies = await _movieRepository.GetMoviesByGenreId(id, pagesize, pageIndex);
+
+            var movieCards = new List<MovieCardResponseModel>();
+
+            foreach (var movie in movies)
+            {
+                movieCards.Add(new MovieCardResponseModel
+                {
+                    Id = movie.Id,
+                    PosterUrl = movie.PosterUrl,
+                    Title = movie.Title
+                }); ;
+            }
+            return movieCards;
+
         }
 
         public async Task< List<MovieCardResponseModel>> GetTop30RevenueMovies()

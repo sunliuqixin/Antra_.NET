@@ -39,5 +39,5 @@ namespace MovieShopAPI.Controllers
             // 200 OK
             return Ok(genres);
         }
-        }
+    }
 }

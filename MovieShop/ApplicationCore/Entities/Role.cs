@@ -18,7 +18,7 @@ namespace ApplicationCore.Entities
         public string Name { get; set; }
 
 
-        public ICollection<UserRole> Users { get; set; }
+        public ICollection<UserRole> Users { get; set; } 
 
 
     }

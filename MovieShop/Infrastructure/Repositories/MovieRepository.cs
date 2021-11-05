@@ -41,6 +41,48 @@ namespace Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<Movie>> GetMoviesByGenreId(int id, int pagesize, int pageIndex)
+        {
+            var movies = await _dbContext.MovieGenres
+                .Where(g => g.GenreId == id)
+                .Include(m => m.Movie)
+                .Skip( pagesize * (pageIndex-1) )
+                .Take(pagesize)
+                .Select( m => new Movie 
+                    {
+                        Id = m.MovieId,
+                        PosterUrl = m.Movie.PosterUrl,
+                        Title = m.Movie.Title,
+                        ReleaseDate = m.Movie.ReleaseDate
+                    })
+                .ToListAsync();
+
+            return movies;
+        }
+
+
+        //public async Task<PagedResultSet<Movie>> GetMoviesByGenre(int genreId, int pageSize = 30, int pageIndex = 1)
+        //{
+        //    var totalMoviesCountByGenre =
+        //        await _dbContext.MovieGenres.Where(g => g.GenreId == genreId).CountAsync();
+
+        //    if (totalMoviesCountByGenre == 0) throw new NotFoundException("NO Movies found for this genre");
+        //    var movies = await _dbContext.MovieGenres.Where(g => g.GenreId == genreId)
+        //        .Include(g => g.Movie).OrderByDescending(m => m.Movie.Revenue)
+        //        .Select(m => new Movie
+        //        {
+        //            Id = m.MovieId,
+        //            PosterUrl = m.Movie.PosterUrl,
+        //            Title = m.Movie.Title,
+        //            ReleaseDate = m.Movie.ReleaseDate
+        //        })
+        //        .Skip((pageIndex - 1) * pageSize).Take(pageSize).ToListAsync();
+
+        //    return new PagedResultSet<Movie>(movies, pageIndex, pageSize, totalMoviesCountByGenre);
+        //}
+
+
+
         public async Task<IEnumerable<Movie>> GetTop30RevenueMovies()
         {
             // we are gonna use EF with LINQ to get top 30 movies by revenue
@@ -52,23 +94,26 @@ namespace Infrastructure.Repositories
                 (m => m.Revenue).Take(30).ToListAsync();
 
             return movies;
-
         }
 
         public async Task<IEnumerable<Movie>> GetTopRatedMovies()
         {
-            //var movies = await from _dbContext.Movies.Include(m => m.Rating)
-            //    .OrderByDescending(m => m.Rating).Take(10).ToListAsync();
+            // var movies = await _dbContext.Movies.OrderByDescending(m => m.Rating).Take(30).ToListAsync();
+            // going to review table
+            // movieid, title, posterurl, rating =>
+            // 
+            var movies = await _dbContext.Reviews.Include(r => r.Movie)
+                .GroupBy(r => new { Id = r.MovieId, r.Movie.PosterUrl })
+                .OrderByDescending(g => g.Average(m => m.Rating))
+                .Select(m =>
+                new Movie
+                {
+                    Id = m.Key.Id,
+                    PosterUrl = m.Key.PosterUrl,
+                    Rating = m.Average(x => x.Rating)
+                }).Take(30).ToListAsync();
 
-            var movies = await _dbContext.Movies.ToListAsync();
-            foreach (var movie in movies)
-            {
-                var Rating = await _dbContext.Reviews.Where(r => r.MovieId == movie.Id).DefaultIfEmpty()
-                .AverageAsync(r => r == null ? 0 : r.Rating);
-                if (Rating > 0) movie.Rating = Rating;
-            }
-            var results = movies.OrderByDescending(m => m.Rating).Take(10).ToList();
-            return results;
+            return movies;
         }
 
         public async Task<IEnumerable<Movie>> GetUserFavoritedMovies(int id)

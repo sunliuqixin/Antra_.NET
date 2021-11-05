@@ -41,9 +41,12 @@ namespace MovieShopAPI
 
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IGenreRepository, GenreRepository>();
-            
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+
+            services.AddScoped<ICastRepository, CastRepository>();
+            services.AddScoped<ICastService, CastService>();
 
             services.AddDbContext<MovieShopDbContext>(options =>
                 options.UseSqlServer(Configuration
